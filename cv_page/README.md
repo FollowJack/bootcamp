@@ -14,9 +14,12 @@ FollowJack CV is a responsive, one page portfolio for a curriculum vitae create 
 ### Basic Usage
 
 ### Install
-### `npm install`
+
+ `npm install`
+ 
 ### Run
-### `npm start`
+
+ `npm start`
 
 Runs the app in development mode.
 Open http://localhost:3000 to view it in the browser.
