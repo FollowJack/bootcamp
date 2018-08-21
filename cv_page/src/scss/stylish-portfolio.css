@@ -109,6 +109,22 @@ h6 {
       .masthead h1 {
         font-size: 5.5rem; } }
 
+.service-icon {
+  background-color: #fff;
+  color: #1d809f;
+  height: 7rem;
+  width: 7rem;
+  display: block;
+  line-height: 7.5rem;
+  font-size: 2.25rem;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1); }
+
+.icon-pencil,
+.icon-screen-smartphone,
+.icon-mustache,
+.icon-like {
+  line-height: inherit; }
+
 /* Side Menu */
 #sidebar-wrapper {
   position: fixed;
@@ -188,18 +204,6 @@ h6 {
     color: #fff; }
   .menu-toggle:hover {
     background: #343a40; }
-
-.callout {
-  padding: 15rem 0;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url("./img/bg-callout.jpg");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover; }
-  .callout h2 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    display: block;
-    max-width: 30rem; }
 
 .portfolio-item {
   display: block;
