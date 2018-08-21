@@ -1,7 +1,6 @@
 # [FollowJack CV - Stylish Portfolio](https://followjack.com)
 
-FollowJack CV is a responsive, one page portfolio for a curriculum vitae [Bootstrap](http://getbootstrap.com/). The theme features multiple content sections with an off canvas navigation menu.
-
+FollowJack CV is a responsive, one page portfolio for a curriculum vitae create with [Bootstrap](http://getbootstrap.com/).
 <!--
 ## Preview
 
