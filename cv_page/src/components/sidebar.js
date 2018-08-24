@@ -10,6 +10,11 @@ class Sidebar extends React.Component {
   render () {
     const siteNav = [
       {
+        title: 'Email me',
+        url: 'mailto:d.horvatic@outlook.com',
+        icon: 'icon-envelope-open margin-right-1'
+      },
+      {
         title: 'Github',
         url: 'https://github.com/FollowJack',
         icon: 'icon-social-github margin-right-1'
@@ -18,6 +23,11 @@ class Sidebar extends React.Component {
         title: 'LinkedIn',
         url: 'https://www.linkedin.com/in/deniel-horvatic-712982b6/',
         icon: 'icon-social-linkedin margin-right-1'
+      },
+      {
+        title: 'twitter',
+        url: 'https://twitter.com/FollowJackDev',
+        icon: 'icon-social-twitter margin-right-1'
       },
       {
         title: 'Home',
