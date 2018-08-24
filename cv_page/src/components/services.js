@@ -4,17 +4,17 @@ const ServicesOffered = [
   {
     title: 'Blockchain',
     description: 'Smart Contracts on Ethereum',
-    icon: 'icon-screen-smartphone'
+    icon: 'icon-globe'
   },
   {
     title: 'Frontend',
     description: 'Modern web applications',
-    icon: 'icon-pencil'
+    icon: 'icon-screen-smartphone'
   },
   {
     title: 'Backend',
     description: 'Servers, API, Databases',
-    icon: 'icon-like'
+    icon: 'icon-cloud-upload'
   },
   {
     title: 'Consult',
@@ -34,7 +34,7 @@ const ServicesSections = () => (
         <div className='row'>
           {ServicesOffered.map((service, index) => (
             <div
-              className='col-lg-3 col-md-6 mb-5 mb-lg-0'
+              className='col-6 col-lg-3 col-md-6 mb-5 mb-lg-0'
               key={`service_${index}`}
             >
               <span className='service-icon rounded-circle mx-auto mb-3'>

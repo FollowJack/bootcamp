@@ -11,27 +11,33 @@ class Sidebar extends React.Component {
     const siteNav = [
       {
         title: 'Github',
-        url: 'https://github.com/FollowJack'
+        url: 'https://github.com/FollowJack',
+        icon: 'icon-social-github margin-right-1'
       },
       {
         title: 'LinkedIn',
-        url: 'https://www.linkedin.com/in/deniel-horvatic-712982b6/'
+        url: 'https://www.linkedin.com/in/deniel-horvatic-712982b6/',
+        icon: 'icon-social-linkedin margin-right-1'
       },
       {
         title: 'Home',
-        url: '#top'
+        url: '#top',
+        icon: 'icon-home margin-right-1'
       },
       {
         title: 'Services',
-        url: '#services'
+        url: '#services',
+        icon: 'icon-mustache margin-right-1'
       },
       {
         title: 'Portfolio',
-        url: '#portfolio'
+        url: '#portfolio',
+        icon: 'icon-notebook margin-right-1'
       },
       {
-        title: 'About',
-        url: '#about'
+        title: 'About me',
+        url: '#about',
+        icon: 'icon-user-following margin-right-1'
       }
     ]
     return [
@@ -50,11 +56,6 @@ class Sidebar extends React.Component {
         className={this.state.sidebarOpen ? 'active' : ''}
       >
         <ul className='sidebar-nav'>
-          // <li className='sidebar-brand'>
-          //   <a className='js-scroll-trigger' href='#top'>
-          //     Start Bootstrap
-          //   </a>
-          </li>
           {siteNav.map(link => (
             <li
               key={link.url}
@@ -62,7 +63,7 @@ class Sidebar extends React.Component {
               onClick={() => this.onMenuItemClick()}
             >
               <a className='js-scroll-trigger' href={link.url}>
-                {link.title}
+                <i className={link.icon} /> {link.title}
               </a>
             </li>
           ))}

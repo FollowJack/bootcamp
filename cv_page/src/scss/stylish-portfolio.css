@@ -86,6 +86,20 @@ h6 {
 .fas {
   line-height: inherit; }
 
+.align-content-center {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; }
+
+.margin-right-1 {
+  margin-right: 1rem; }
+
+.me {
+  width: 280px;
+  height: 280px;
+  max-width: 100%;
+  max-height: auto; }
+
 .masthead {
   min-height: 30rem;
   position: relative;

@@ -11,6 +11,10 @@ const socialSites = [
   {
     link: 'https://github.com/FollowJack',
     icon: 'icon-social-github'
+  },
+  {
+    link: 'mailto:d.horvatic@outlook.com',
+    icon: 'icon-envelope-open'
   }
 ]
 const FooterSection = () => (
@@ -26,7 +30,7 @@ const FooterSection = () => (
       ))}
       </ul>
       <p className='text-muted small mb-0'>
-        Copyright &copy FollowJack 2018
+        Copyright &copy; FollowJack 2018
       </p>
     </div>
   </footer>
