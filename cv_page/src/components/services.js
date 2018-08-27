@@ -8,7 +8,7 @@ const ServicesOffered = [
   },
   {
     title: 'Frontend',
-    description: 'Modern web applications',
+    description: 'Modern Web Applications',
     icon: 'icon-screen-smartphone'
   },
   {
@@ -19,7 +19,7 @@ const ServicesOffered = [
   {
     title: 'Consult',
     description: (<span>
-      Feel free to ask <i className='fas fa-heart' />
+      Trainings, Workshops. Feel free to ask <i className='fas fa-heart' />
     </span>),
     icon: 'icon-mustache'
   }
