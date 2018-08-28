@@ -6,6 +6,7 @@ var GameOfLife = require('../src/game_of_life')
 
 describe('Game of Life', () => {
   let gameOfLife
+
   beforeEach(() => {
     gameOfLife = new GameOfLife(2, 2)
   })
@@ -13,7 +14,7 @@ describe('Game of Life', () => {
   describe('Space', () => {
     it('should creates initial empty two dimensionaly array', () => {
       const space = gameOfLife.field
-      const result = [ [ false, false ], [ false, false ] ]
+      const result = [ [ {state: 'DEAD'}, {state: 'DEAD'} ], [ {state: 'DEAD'}, {state: 'DEAD'} ] ]
       expect(space).deep.equal(result)
     })
     it('should throw an error if negative numbers are entered', () => {
@@ -51,8 +52,20 @@ describe('Game of Life', () => {
     })
   })
   describe('Cell', () => {
-    it('should place a cell on any field', () => {
+    it('should place a living cell on any field', () => {
+      const cellBefore = gameOfLife.field[1][0]
+      expect(cellBefore.state).to.equal('DEAD')
 
+      gameOfLife.setCellLive(1, 0)
+
+      const cellAfter = gameOfLife.field[1][0]
+      expect(cellAfter.state).to.equal('LIVE')
+    })
+    it('should place a dead cell on any field', () => {
+      gameOfLife.setCellDead(0, 0)
+
+      const cellAfter = gameOfLife.field[0][0]
+      expect(cellAfter.state).to.equal('DEAD')
     })
     xit('should change dead cell to live cell', () => {
       const cellBefore = gameOfLife.field[0][0]

@@ -1,13 +1,13 @@
 class GameOfLife {
-  constructor (height, width) {
-    if (typeof height !== 'number' || typeof width !== 'number') {
+  constructor (x, y) {
+    if (typeof x !== 'number' || typeof y !== 'number') {
       throw new Error('Height and width are not set as numbers')
     }
-    if (height <= 0 || width <= 0) {
+    if (x <= 0 || y <= 0) {
       throw new Error('Height and width should be at least 1')
     }
-    this.height = height
-    this.width = width
+    this.height = x
+    this.width = y
     this.field = []
     this.field = this.initializeField()
     this.state = 0
@@ -20,10 +20,18 @@ class GameOfLife {
         if (width === 0) {
           field.push([])
         }
-        field[height].push(false)
+        field[height].push({state: 'DEAD'})
       }
     }
     return field
+  }
+
+  setCellLive (x, y) {
+    this.field[x][y].state = 'LIVE'
+  }
+
+  setCellDead (x, y) {
+    this.field[x][y].state = 'DEAD'
   }
 
   swtichToNextState () {
