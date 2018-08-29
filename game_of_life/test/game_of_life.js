@@ -8,14 +8,16 @@ describe('Game of Life', () => {
   let gameOfLife
 
   beforeEach(() => {
-    gameOfLife = new GameOfLife(2, 2)
+    gameOfLife = new GameOfLife(4, 4)
   })
 
   describe('Space', () => {
     it('should creates initial empty two dimensionaly array', () => {
+      gameOfLife = new GameOfLife(2, 2)
       const space = gameOfLife.field
-      const result = [ [ {state: 'DEAD'}, {state: 'DEAD'} ], [ {state: 'DEAD'}, {state: 'DEAD'} ] ]
-      expect(space).deep.equal(result)
+      const deadCell = {state: 'DEAD', neighbours: 0}
+      const result = [ [ deadCell, deadCell ], [ deadCell, deadCell ] ]
+      expect(result).deep.equal(space)
     })
     it('should throw an error if negative numbers are entered', () => {
       try {
@@ -43,63 +45,78 @@ describe('Game of Life', () => {
     let state
     it('should initialize with state zero', () => {
       state = gameOfLife.state
-      expect(state).to.equal(0)
+      expect(0).to.equal(state)
     })
     it('should change to next state', () => {
       gameOfLife.swtichToNextState()
       state = gameOfLife.state
-      expect(state).to.equal(1)
+      expect(1).to.equal(state)
     })
   })
   describe('Cell', () => {
     it('should place a living cell on any field', () => {
       const cellBefore = gameOfLife.field[1][0]
-      expect(cellBefore.state).to.equal('DEAD')
+      expect('DEAD').to.equal(cellBefore.state)
 
       gameOfLife.setCellLive(1, 0)
 
       const cellAfter = gameOfLife.field[1][0]
-      expect(cellAfter.state).to.equal('LIVE')
+      expect('LIVE').to.equal(cellAfter.state)
     })
     it('should place a dead cell on any field', () => {
       gameOfLife.setCellDead(0, 0)
 
       const cellAfter = gameOfLife.field[0][0]
-      expect(cellAfter.state).to.equal('DEAD')
-    })
-    xit('should change dead cell to live cell', () => {
-      const cellBefore = gameOfLife.field[0][0]
-      expect(cellBefore.state).to.equal('DEAD')
-      expect(cell.state).to.equal('LIVE')
-    })
-    xit('should change live cell to dead cell', () => {
-      expect(cellBefore).to.equal('LIVE')
-      expect(cell).to.equal('DEAD')
+      expect('DEAD').to.equal(cellAfter.state)
     })
   })
   describe('Game rules', () => {
-    xit('Any live cell with fewer than two live neighbors dies, as if by under population.', () => {
-      expect(cellBefore).to.equal('LIVE')
-      expect(zeroNeighbour).to.equal(0)
-      expect(oneNeighbour).to.equal(1)
-      expect(cell).to.equal('DEAD')
+    it('1. live cell should die with fewer than two live neighbors, as if by under population.', () => {
+      gameOfLife.setCellLive(1, 1)
+      const cellStateBefore = gameOfLife.field[1][1].state
+      expect('LIVE').to.equal(cellStateBefore)
+
+      gameOfLife.setCellLive(0, 0)
+      gameOfLife.swtichToNextState()
+      const cellStateAfter = gameOfLife.field[1][1].state
+
+      expect('DEAD').to.equal(cellStateAfter)
     })
-    xit('Any live cell with two or three live neighbors lives on to the next generation', () => {
-      expect(cellBefore).to.equal('LIVE')
-      expect(twoNeuighbour).to.equal(2)
-      expect(threeNeighbour).to.equal(3)
-      expect(cell).to.equal('LIVE')
+    it('2. live cell should live with two or three live neighbors', () => {
+      gameOfLife.setCellLive(1, 1)
+      const cellStateBefore = gameOfLife.field[1][1].state
+      expect('LIVE').to.equal(cellStateBefore)
+
+      gameOfLife.setCellLive(0, 0)
+      gameOfLife.setCellLive(0, 1)
+      gameOfLife.setCellLive(0, 2)
+      gameOfLife.swtichToNextState()
+      const cellStateAfter = gameOfLife.field[1][1].state
+      expect('LIVE').to.equal(cellStateAfter)
     })
-    xit('Any live cell with more than three live neighbors dies, as if by overpopulation.', () => {
-      expect(cellBefore).to.equal('LIVE')
-      expect(fourNeighbour).to.equal(4)
-      expect(fourNeighbour).to.equal(8)
-      expect(cell).to.equal('DEAD')
+    it('3. live cell should die with more than three live neighbors, as if by overpopulation.', () => {
+      gameOfLife.setCellLive(1, 1)
+      const cellStateBefore = gameOfLife.field[1][1].state
+      expect('LIVE').to.equal(cellStateBefore)
+
+      gameOfLife.setCellLive(0, 0)
+      gameOfLife.setCellLive(0, 1)
+      gameOfLife.setCellLive(0, 2)
+      gameOfLife.setCellLive(1, 0)
+      gameOfLife.swtichToNextState()
+      const cellStateAfter = gameOfLife.field[1][1].state
+      expect('DEAD').to.equal(cellStateAfter)
     })
-    xit('Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.', () => {
-      expect(cellBefore).to.equal('DEAD')
-      expect(fourNeighbour).to.equal(3)
-      expect(cell).to.equal('LIVE')
+    it('4. dead cell should live with exactly three live neighbors, as if by reproduction.', () => {
+      const cellStateBefore = gameOfLife.field[1][1].state
+      expect('DEAD').to.equal(cellStateBefore)
+
+      gameOfLife.setCellLive(0, 0)
+      gameOfLife.setCellLive(0, 1)
+      gameOfLife.setCellLive(0, 2)
+      gameOfLife.swtichToNextState()
+      const cellStateAfter = gameOfLife.field[1][1].state
+      expect('LIVE').to.equal(cellStateAfter)
     })
   })
 })
