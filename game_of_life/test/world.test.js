@@ -7,7 +7,6 @@ let Cell
 let World
 
 describe('Game of Life', () => {
-
   before(() => {
     var canvas = document.createElement('canvas')
     canvas.id = 'canvas'
@@ -26,8 +25,8 @@ describe('Game of Life', () => {
   })
 
   beforeEach(() => {
-    Cell = require('../src/game_of_life').Cell
-    World = require('../src/game_of_life').World
+    Cell = require('../src/cell')
+    World = require('../src/world')
   })
 
   describe('World', () => {
@@ -58,6 +57,20 @@ describe('Game of Life', () => {
       } catch (err) {
         should.exist(err)
       }
+    })
+    it('should get the last element if the height or width is bigger than the space', () => {
+      const world = new World(4, 4)
+      world.setCell(3, 3, new Cell('LIVE'))
+      const cellOutOfSpace = world.getCell(4, 4)
+      const isCellAlive = cellOutOfSpace.isAlive()
+      expect(isCellAlive).to.be.true
+    })
+    it('should place the last element if the height or width is bigger than the space', () => {
+      const world = new World(4, 4)
+      world.setCell(4, 4, new Cell('LIVE'))
+      const cellOutOfSpace = world.getCell(3, 3)
+      const isCellAlive = cellOutOfSpace.isAlive()
+      expect(isCellAlive).to.be.true
     })
     it('should place a living cell on any field', () => {
       const world = new World(4, 4)

@@ -27,8 +27,8 @@ describe('Game of Life', () => {
   })
 
   beforeEach(() => {
-    World = require('../src/game_of_life').World
-    GameOfLife = require('../src/game_of_life').GameOfLife
+    World = require('../src/world')
+    GameOfLife = require('../src/game_of_life')
     gameOfLife = new GameOfLife(4, 4)
   })
 
