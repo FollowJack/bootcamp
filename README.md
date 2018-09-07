@@ -1,4 +1,4 @@
-# bootcamp
+# Bootcamp
 
 A bootcamp for a js profession. 
 
