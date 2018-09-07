@@ -9,12 +9,13 @@ const portfolioItems = [
   {
     imgSrc: './img/portfolio-2.jpg',
     heading: 'Game of Life',
+    url: '/game_of_life',
     description:
       'A small simulation of life with 4 basic rules.'
   },
   {
     imgSrc: './img/portfolio-3.jpg',
-    heading: 'TODO',
+    heading: 'Crypto Weddings',
     description:
       'Lorem ipsum gonna be great!'
   },
@@ -36,7 +37,7 @@ const PortfolioSection = () => (
         <div className='row no-gutters'>
           {portfolioItems.map((project, index) => (
             <div className='col-lg-6' key={`portfolio_item_${index}`}>
-              <a className='portfolio-item' href=''>
+              <a className='portfolio-item' href={project.url}>
                 <span className='caption'>
                   <span className='caption-content'>
                     <h2>{project.heading}</h2>

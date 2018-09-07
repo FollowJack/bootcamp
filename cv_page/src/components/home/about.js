@@ -76,38 +76,41 @@ const iconItems = [
   }
 ]
 
-const AboutSection = () => (
-  <ScrollableAnchor id='about'>
-    <section className='content-section bg-light'>
-      <div className='container text-center'>
-        <div className='row'>
-          <div className='col-lg-10 mb-3 mx-auto'>
-            <h2 className='mb-5'>
-              Adventure craving hacker who has a passion for technology, neuroscience and badminton.
-            </h2>
+class AboutSection extends React.Component {
+  render () {
+    return (
+      <ScrollableAnchor id='about'>
+        <section className='content-section bg-light'>
+          <div className='container text-center'>
             <div className='row'>
-              {iconItems.map((project, index) => (
-                <div className='col-lg-2 col-3 col-xs-2 mb-3 align-content-center'>
-                  <img className='img-fluid' src={project.imgSrc} title={project.altText} alt={project.altText} />
+              <div className='col-lg-10 mb-3 mx-auto'>
+                <h2 className='mb-5'>
+                  Adventure craving hacker who has a passion for technology, neuroscience and badminton.
+                </h2>
+                <div id='portfolio-projects' className='row'>
+                  {iconItems.map((project, index) => (
+                    <div key={index} className='col-lg-2 col-3 col-xs-2 mb-3 align-content-center'>
+                      <img className='img-fluid' src={project.imgSrc} title={project.altText} alt={project.altText} />
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+            </div>
+            <div className='row'>
+              <div className='col-lg-2 mx-auto'>
+                <a
+                  className='btn btn-dark btn-xl js-scroll-trigger'
+                  target='_blank' rel='noopener noreferrer'
+                  href='https://drive.google.com/open?id=1BvljZFpBKQZq_LCMDO_wn80jQuapXCo4'
+                >
+              Download CV
+              </a>
+              </div>
             </div>
           </div>
-        </div>
-        <div className='row'>
-          <div className='col-lg-2 mx-auto'>
-            <a
-              className='btn btn-dark btn-xl js-scroll-trigger'
-              target='_blank' rel='noopener noreferrer'
-              href='https://drive.google.com/open?id=1BvljZFpBKQZq_LCMDO_wn80jQuapXCo4'
-            >
-          Download CV
-          </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </ScrollableAnchor>
-)
-
+        </section>
+      </ScrollableAnchor>
+    )
+  }
+}
 export default AboutSection
