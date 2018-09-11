@@ -30,14 +30,13 @@ The initial pattern constitutes the seed of the system. The first generation is 
  
 ### Usage
 
-`
+```
 import GameOfLife from 'followjacks-game-of-life'   
 
-let gameOfLife = new GameOfLife(200, 100)
+let gameOfLife = new GameOfLife(200, 100)   
 
-this.gameOfLife.swtichToNextGeneration()
-this.stopGame()
-`
+this.gameOfLife.swtichToNextGeneration()   
+```
 
 ### Test
 
