@@ -4,7 +4,7 @@ FollowJack Game of Life is a cellular automaton devised by the British mathemati
 
 ## Preview
 
-[![Game of Life Preview](.docs/game_of_life.png)](http://followjack.com/game_of_life)
+[![Game of Life Preview](https://github.com/FollowJack/bootcamp/tree/master/game_of_life/docs/game_of_life.png)](http://followjack.com/game_of_life)
 
 **[View Live Preview](http://followjack.com/game_of_life)**
 
