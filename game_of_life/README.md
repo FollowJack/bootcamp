@@ -26,7 +26,7 @@ The initial pattern constitutes the seed of the system. The first generation is 
 
 ### Install
 
- `npm install`
+ `npm install --save followjacks-game-of-life`
 
 ### Test
 
