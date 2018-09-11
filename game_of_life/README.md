@@ -1,13 +1,13 @@
 # [FollowJack Game of Life](https://followjack.com/game_of_life)
 
 FollowJack Game of Life is a cellular automaton devised by the British mathematician John Horton Conway in 1970 create with [name](webpage).
-<!--
+
 ## Preview
 
-[![Stylish Portfolio Preview](https://startbootstrap.com/assets/img/templates/stylish-portfolio.jpg)](http://preview.christopherdaniel.me/react-stylish-portfolio/)
+[![Game of Life Preview](.docs/game_of_life.png)](http://followjack.com/game_of_life)
 
-**[View Live Preview](http://preview.christopherdaniel.me/react-stylish-portfolio/)**
--->
+**[View Live Preview](http://followjack.com/game_of_life)**
+
 
 ### Rules
 
