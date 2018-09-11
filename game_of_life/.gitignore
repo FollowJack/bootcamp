@@ -9,3 +9,4 @@ node_modules
 *.swo
 
 package-lock.json
+.nyc_output

@@ -1,12 +1,14 @@
+const cellState = require('./cell_state')
+
 class Cell {
-  constructor (state = 'DEAD') {
+  constructor (state = cellState.DEAD) {
     this.state = state
   }
   isAlive (cell) {
-    return this.state === 'LIVE'
+    return this.state === cellState.ALIVE
   }
   isDead (cell) {
-    return this.state === 'DEAD'
+    return this.state === cellState.DEAD
   }
 }
 

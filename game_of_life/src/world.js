@@ -1,4 +1,5 @@
 const Cell = require('./cell')
+const cellState = require('./cell_state')
 
 class World {
   constructor (width, height) {
@@ -72,7 +73,7 @@ class World {
         if (width === 0) {
           world.push([])
         }
-        world[height].push(new Cell('DEAD'))
+        world[height].push(new Cell(cellState.DEAD))
       }
     }
     return world

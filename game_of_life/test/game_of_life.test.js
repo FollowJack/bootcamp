@@ -2,7 +2,6 @@
 
 require('jsdom-global')()
 const expect = require('chai').expect
-const should = require('chai').should()
 let GameOfLife
 let World
 

@@ -1,12 +1,11 @@
 {
-  "name": "followjack_game_of_life",
-  "version": "0.0.6",
+  "name": "followjacks-game-of-life",
+  "version": "0.1.0",
   "description": "Game of Life",
   "main": "index.js",
   "scripts": {
-    "start": "TODO",
     "test": "nyc ./node_modules/.bin/mocha --reporter spec",
-    "testDebug": "./node_modules/.bin/mocha --inspect-brk test/game_of_life.test.js"
+    "testDebug": "./node_modules/.bin/mocha --inspect-brk"
   },
   "repository": {
     "type": "git",

@@ -1,5 +1,6 @@
 const Cell = require('./cell')
 const World = require('./world')
+const cellState = require('./cell_state')
 
 class GameOfLife {
   constructor (width, height) {
@@ -20,10 +21,10 @@ class GameOfLife {
     let isAlive
     const cell = this.world.getCell(height, width)
     if (cell.isAlive()) {
-      this.world.setCell(height, width, new Cell('DEAD'))
+      this.world.setCell(height, width, new Cell(cellState.DEAD))
       isAlive = false
     } else {
-      this.world.setCell(height, width, new Cell('LIVE'))
+      this.world.setCell(height, width, new Cell(cellState.ALIVE))
       isAlive = true
     }
     return isAlive
@@ -44,16 +45,16 @@ class GameOfLife {
         let neighbours = this.world.countNeighbours(height, width)
 
         if (neighbours <= 1) { // GAME RULE #1
-          newWorld.setCell(height, width, new Cell('DEAD'))
+          newWorld.setCell(height, width, new Cell(cellState.DEAD))
         } else if (this.world.getCell(height, width).isAlive() &&
         (neighbours === 2 || neighbours === 3)) { // GAME RULE #2
-          newWorld.setCell(height, width, new Cell('LIVE'))
+          newWorld.setCell(height, width, new Cell(cellState.ALIVE))
         } else if (this.world.getCell(height, width).isAlive() &&
         neighbours > 3) { // GAME RULE #3
-          newWorld.setCell(height, width, new Cell('DEAD'))
+          newWorld.setCell(height, width, new Cell(cellState.DEAD))
         } else if (this.world.getCell(height, width).isDead() &&
           neighbours === 3) { // GAME RULE #4
-          newWorld.setCell(height, width, new Cell('LIVE'))
+          newWorld.setCell(height, width, new Cell(cellState.ALIVE))
         }
       }
     }
