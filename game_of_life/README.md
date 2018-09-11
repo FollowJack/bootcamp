@@ -35,7 +35,7 @@ import GameOfLife from 'followjacks-game-of-life'
 
 let gameOfLife = new GameOfLife(200, 100)   
 
-this.gameOfLife.swtichToNextGeneration()   
+gameOfLife.swtichToNextGeneration()   
 ```
 
 ### Test
