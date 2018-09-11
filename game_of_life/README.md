@@ -1,12 +1,12 @@
-# [FollowJack Game of Life](https://followjack.com/game_of_life)
+# [FollowJack Game of Life](https://followjack.io/game_of_life)
 
-FollowJack Game of Life is a cellular automaton devised by the British mathematician John Horton Conway in 1970 create with [name](webpage).
+FollowJack Game of Life is a cellular automaton devised by the British mathematician John Horton Conway in 1970 created in BDD.
 
 ## Preview
 
-[![Game of Life Preview](https://github.com/FollowJack/bootcamp/tree/master/game_of_life/docs/game_of_life.png)](http://followjack.com/game_of_life)
+[![Game of Life Preview](https://github.com/FollowJack/bootcamp/tree/master/game_of_life/docs/game_of_life.png)](http://followjack.io/game_of_life)
 
-**[View Live Preview](http://followjack.com/game_of_life)**
+**[View Live Preview](http://followjack.io/game_of_life)**
 
 
 ### Rules
@@ -28,44 +28,25 @@ The initial pattern constitutes the seed of the system. The first generation is 
 
  `npm install`
 
-### Run TODO
+### Test
 
- `npm start`
+For running mocha.js and nyc coverage tests run:   
 
-Runs the app in development mode.
-Open http://localhost:3000 to view it in the browser.
+ `npm test`
 
-The page will automatically reload if you make changes to the code.
-You will see the build errors and lint warnings in the console.
+For debuging test run:
+
+ `npm run testDebug`
+
+### Inject into your application
+
+See ui_manager.js as an example for ui integration.
 
 
-`npm run build`
+## About
 
-Builds the app for production to the build folder.
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Game of Life was created by and is maintained by **[FollowJack](http://followjack.io/)**.
 
-The build is minified and the filenames include the hashes.
-By default, it also includes a service worker so that your app loads from local cache on future visits.
-
-Your app is ready to be deployed.
-
-<!-- ## About
-
-Start Bootstrap is an open source library of free Bootstrap templates and themes. All of the free templates and themes on Start Bootstrap are released under the MIT license, which means you can use them for any purpose, even for commercial projects.
-
-* https://startbootstrap.com
-* https://twitter.com/SBootstrap
-
-Start Bootstrap was created by and is maintained by **[David Miller](http://davidmiller.io/)**, Owner of [Blackrock Digital](http://blackrockdigital.io/).
-
-* http://davidmiller.io
-* https://twitter.com/davidmillerskt
-* https://github.com/davidtmiller
-
-Start Bootstrap is based on the [Bootstrap](http://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
-
-React App built by [CincinnatiCodes](http://twitter.com/cincinnaticodes) -->
-
-<!-- ## Copyright and License
-
-Copyright 2013-2018 Blackrock Digital LLC. Code released under the [MIT](https://github.com/cincinnaticodes/react-stylish-portfolio/blob/gh-pages/LICENSE) license. -->
+* http://followjack.io
+* https://twitter.com/followjackdev
+* https://github.com/followjack
