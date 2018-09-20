@@ -1,11 +1,15 @@
 import React from 'react'
 
-import GameOfLife from 'followjack_game_of_life'
+import GameOfLife from 'followjacks-game-of-life'
 
 import ProjectDescription from './projectDescription'
 
 class GameOfLifeSection extends React.Component {
   componentDidMount () {
+    this.initializeGame()
+  }
+
+  initializeGame () {
     this.gameOfLife = new GameOfLife(200, 100)
     this.cellSize = 9
     this.cellSpace = 1
@@ -14,11 +18,17 @@ class GameOfLifeSection extends React.Component {
     this.lastYPosition = 0
     this.mouseDown = false
 
+    this.gameIntervalId = null
+
     this.elements = {
       canvas: null,
       context: null,
       runButton: null,
-      runButtonId: 'run'
+      stopButton: null,
+      resetButton: null,
+      runButtonId: 'run',
+      stopButtonId: 'stop',
+      resetButtonId: 'reset'
     }
     this.colors = {
       alive: '#00FF00',
@@ -116,12 +126,26 @@ class GameOfLifeSection extends React.Component {
   registerUIEvents () {
     this.elements.runButton = document.getElementById(this.elements.runButtonId)
     this.registerEvent(this.elements.runButton, 'click', this.startGame)
+    this.elements.stopButton = document.getElementById(this.elements.stopButtonId)
+    this.registerEvent(this.elements.stopButton, 'click', this.stopGame)
+    this.elements.resetButton = document.getElementById(this.elements.resetButtonId)
+    this.registerEvent(this.elements.resetButton, 'click', this.resetGame)
+  }
+  resetGame () {
+    this.stopGame()
+    this.initializeGame()
   }
   startGame () {
-    window.setInterval(() => {
+    if (this.gameIntervalId !== null) {
+      this.stopGame()
+    }
+    this.gameIntervalId = window.setInterval(() => {
       this.gameOfLife.swtichToNextGeneration()
       this.redrawWorld()
     }, 100)
+  }
+  stopGame () {
+    window.clearInterval(this.gameIntervalId)
   }
   switchCellState (height, width) {
     const isAlive = this.gameOfLife.switchCellState(height, width)
@@ -149,7 +173,7 @@ class GameOfLifeSection extends React.Component {
             </div>
             <div className='col-lg-2 mb-5'>
               <button
-                id='run'
+                id='stop'
                 type='button'
                 className='btn btn-warning btn-xl'
               >
@@ -158,7 +182,7 @@ class GameOfLifeSection extends React.Component {
             </div>
             <div className='col-lg-2 mb-5'>
               <button
-                id='run'
+                id='reset'
                 type='button'
                 className='btn btn-danger btn-xl'
               >

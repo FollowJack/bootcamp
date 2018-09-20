@@ -4,6 +4,7 @@ const portfolioItems = [
   {
     imgSrc: './img/portfolio-1.jpg',
     heading: 'uFree',
+    url: '/uFree',
     description: 'A decentralized Ethereum visa application (dApp)'
   },
   {

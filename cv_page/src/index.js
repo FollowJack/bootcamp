@@ -9,6 +9,7 @@ import Sidebar from './components/common/sidebar'
 import FooterSection from './components/common/footer'
 import ScrollToTop from './components/common/scrollToTop'
 import GameOfLife from './components/projects/gameOfLife'
+import GameOfLife from './components/projects/uFree'
 import Home from './components/home/index'
 
 class App extends React.Component {
@@ -20,6 +21,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path='/' component={Home} />
             <Route path='/game_of_life' component={GameOfLife} />
+            <Route path='/ufree' component={UFree} />
             <Route path='*' component={Home} />
           </Switch>
         </Router>

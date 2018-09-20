@@ -1,9 +1,11 @@
 import React from 'react'
 
 class ProjectDescription extends React.Component {
+  // uFree
+  // gameOfLife
   render () {
     const title = 'Game of Life'
-    const description = 'Game of life developed with Behaviour Driven Design approach as npm module'
+    const description = 'Game of life developed with Behaviour Driven Design approach as npm module.</br>'
     const buttonLink = 'https://github.com/FollowJack/bootcamp/tree/master/game_of_life'
 
     return (
