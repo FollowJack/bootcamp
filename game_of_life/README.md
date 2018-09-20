@@ -26,7 +26,17 @@ The initial pattern constitutes the seed of the system. The first generation is 
 
 ### Install
 
- `npm install`
+ `npm install --save followjacks-game-of-life`
+ 
+### Usage
+
+```
+import GameOfLife from 'followjacks-game-of-life'   
+
+let gameOfLife = new GameOfLife(200, 100)   
+
+gameOfLife.swtichToNextGeneration()   
+```
 
 ### Test
 
