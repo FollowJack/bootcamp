@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Crowd Pong",
+  "name": "Have fun playing pong with friends and family in decentralized networks :)",
   "icons": [
     {
       "src": "favicon.ico",
