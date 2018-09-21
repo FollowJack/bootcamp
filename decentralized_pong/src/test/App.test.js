@@ -42,7 +42,7 @@ describe('Main App', () => {
     expect(html).toBe('| Crowd ° Pong |')
   }, 900000)
 
-  test('Games loads correctly', async () => {
+  test('Game Component loads correctly', async () => {
     await GamesContent.loadPage(page)
     const html = await GamesContent.getTitle(page)
     expect(html).toBe('Choose your Game')
