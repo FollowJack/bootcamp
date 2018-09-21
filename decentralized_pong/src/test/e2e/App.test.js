@@ -4,7 +4,7 @@
 import puppeteer from 'puppeteer'
 import AppComponents from './AppComponents'
 const AppHeader = AppComponents.AppHeader
-const GamesContent = AppComponents.GamesContent
+const GameListContent = AppComponents.GameListContent
 
 let browser
 let page
@@ -43,8 +43,8 @@ describe('Main App', () => {
   }, 900000)
 
   test('Game Component loads correctly', async () => {
-    await GamesContent.loadPage(page)
-    const html = await GamesContent.getTitle(page)
+    await GameListContent.loadPage(page)
+    const html = await GameListContent.getTitle(page)
     expect(html).toBe('Choose your Game')
   }, 900000)
 })

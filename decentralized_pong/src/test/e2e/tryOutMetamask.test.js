@@ -7,12 +7,12 @@ describe('Main App', () => {
     const browser = await dappeteer.launch(puppeteer)
     const metamask = await dappeteer.getMetamask(browser)
 
+    // you can change the network if you want
+    await metamask.switchNetwork('ropsten')
+
     // create or import an account
     await metamask.createAccount('password1234')
     // await metamask.importAccount('already turtle birth enroll since...')
-
-    // you can change the network if you want
-    await metamask.switchNetwork('ropsten')
 
     // go to a dapp and do something that prompts MetaMask to confirm a transaction
     const page = await browser.newPage()

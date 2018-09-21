@@ -23,7 +23,7 @@ class AppHeader {
   }
 }
 
-class GamesContent {
+class GameListContent {
   constructor () {
     this.appHeader = new AppHeader()
   }
@@ -42,5 +42,5 @@ class GamesContent {
 
 export default {
   AppHeader: new AppHeader(),
-  GamesContent: new GamesContent()
+  GameListContent: new GameListContent()
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { HashRouter, Route, Switch } from 'react-router-dom'
-import Games from './routes/Games'
+import GameList from './routes/Games'
 import createHistory from 'history/createBrowserHistory'
 
 const history = createHistory()
@@ -12,7 +12,6 @@ class App extends Component {
   }
 
   goToGames () {
-    console.log('klick')
     history.replace('/')
   }
 
@@ -25,7 +24,7 @@ class App extends Component {
         <div className='App-content'>
           <HashRouter>
             <Switch>
-              <Route exact path='/' component={Games} />
+              <Route exact path='/' component={GameList} />
             </Switch>
           </HashRouter>
         </div>
