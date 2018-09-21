@@ -1,19 +1,13 @@
 /* global describe, expect, test, beforeAll, afterAll */
 // const faker = require('faker')
-const puppeteer = require('puppeteer')
-
-const appUrlBase = 'http://localhost:3000'
-const routes = {
-  public: {
-    home: `${appUrlBase}/`
-  },
-  private: {
-  }
-}
+// const puppeteer = require('puppeteer')
+import puppeteer from 'puppeteer'
+import AppComponents from './AppComponents'
+const AppHeader = AppComponents.AppHeader
+const GamesContent = AppComponents.GamesContent
 
 let browser
 let page
-// const person = {
 //   name: faker.name.firstName() + ' ' + faker.name.lastName(),
 //   email: faker.internet.email(),
 //   phone: faker.phone.phoneNumber(),
@@ -23,8 +17,10 @@ let page
 beforeAll(async () => {
   // launch browser
   browser = await puppeteer.launch({
-    headless: false, // headless mode set to false so browser opens up with visual feedback
-    slowMo: 250 // how slow actions should be
+    headless: true // headless mode set to false so browser opens up with visual feedback
+    // TODO  Get process.ENV === DEBUG for displaying the browser
+    // headless: false, // headless mode set to false so browser opens up with visual feedback
+    // slowMo: 250 // how slow actions should be
   })
   // creates a new page in the opened browser
   page = await browser.newPage()
@@ -40,21 +36,15 @@ describe('Main App', () => {
     //   userAgent: ''
     // })
 
-    await page.goto(routes.public.home)
-    await page.waitForSelector('.App-title')
+    await AppHeader.loadPage(page)
+    const html = await AppHeader.getTitle(page)
 
-    const html = await page.$eval('.App-title', element => element.innerHTML)
     expect(html).toBe('| Crowd ° Pong |')
   }, 900000)
 
   test('Games loads correctly', async () => {
-    await page.goto(routes.public.home)
-    await page.waitForSelector('.App-title')
-
-    await page.click('.App-title')
-    await page.waitForSelector('.Games-title')
-
-    const html = await page.$eval('.Games-title', element => element.innerHTML)
+    await GamesContent.loadPage(page)
+    const html = await GamesContent.getTitle(page)
     expect(html).toBe('Choose your Game')
   }, 900000)
 })

@@ -1,24 +1,35 @@
 import React, { Component } from 'react'
 import { HashRouter, Route, Switch } from 'react-router-dom'
-
-// import logo from './logo.svg'
 import Games from './routes/Games'
+import createHistory from 'history/createBrowserHistory'
+
+const history = createHistory()
+
 
 class App extends Component {
+  constructor (probs) {
+    super(probs)
+  }
+
+  goToGames () {
+    console.log('klick')
+    history.replace('/')
+  }
+
   render () {
     return (
-      <HashRouter>
-        <div className='App'>
-          <header className='App-header'>
-            <h1 className='App-title'>| Crowd ° Pong |</h1>
-          </header>
-          <div className='App-content'>
+      <div className='App'>
+        <header className='App-header'>
+          <h1 className='App-title' onClick={this.goToGames}>| Crowd ° Pong |</h1>
+        </header>
+        <div className='App-content'>
+          <HashRouter>
             <Switch>
               <Route exact path='/' component={Games} />
             </Switch>
-          </div>
+          </HashRouter>
         </div>
-      </HashRouter>
+      </div>
     )
   }
 }
