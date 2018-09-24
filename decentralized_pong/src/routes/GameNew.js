@@ -32,45 +32,65 @@ class GameNew extends Component {
     return (
       <div>
         <h3 className='GameNew-title'>Create new Game</h3>
-        <div className='row'>
+        <div>
           <form className='GameNew-form' onSubmit={this.handleCreateNewGame}>
-            <label>
-              Max Score:
-              <input value={this.state.maxScore}
-                onChange={this.handleInputChange.bind(this)}
-                type='number'
-                name='maxScore' className='GameNew-max-score' />
-            </label>
-            <label>
-              Match Name:
-              <input value={this.state.matchName}
-                onChange={this.handleInputChange.bind(this)}
-                type='text'
-                name='matchName' className='GameNew-match-name' />
-            </label>
-            <label>
-              Team Name A:
-              <input value={this.state.teamNameA}
-                onChange={this.handleInputChange.bind(this)}
-                type='text'
-                name='teamNameA' className='GameNew-teamname-a' />
-            </label>
-            <label>
-              Team Name B:
-              <input value={this.state.teamNameB}
-                onChange={this.handleInputChange.bind(this)}
-                type='text'
-                name='teamNameB' className='GameNew-teamname-b' />
-            </label>
-            <label>
-              Start in Minutes:
-              <input value={this.state.minutesUntilStart}
-                onChange={this.handleInputChange.bind(this)}
-                type='number'
-                name='minutesUntilStart' className='GameNew-start-in-x-minutes' />
-            </label>
+            <div class='form-group row'>
+              <label className='col-sm-2 col-form-label'>
+                Max Score:
+              </label>
+              <div className='col-sm-10'>
+                <input value={this.state.maxScore}
+                  onChange={this.handleInputChange.bind(this)}
+                  type='number'
+                  name='maxScore' className='GameNew-max-score form-control' />
+              </div>
+            </div>
+            <div class='form-group row'>
+              <label className='col-sm-2 col-form-label'>
+                Match Name:
+              </label>
+              <div className='col-sm-10'>
+                <input value={this.state.matchName}
+                  onChange={this.handleInputChange.bind(this)}
+                  type='text'
+                  name='matchName' className='GameNew-match-name form-control' />
+              </div>
+            </div>
+            <div class='form-group row'>
+              <label className='col-sm-2 col-form-label'>
+                Team Name A:
+              </label>
+              <div className='col-sm-10'>
+                <input value={this.state.teamNameA}
+                  onChange={this.handleInputChange.bind(this)}
+                  type='text'
+                  name='teamNameA' className='GameNew-teamname-a form-control' />
+              </div>
+            </div>
+            <div class='form-group row'>
+              <label className='col-sm-2 col-form-label'>
+                Team Name B:
+              </label>
+              <div className='col-sm-10'>
+                <input value={this.state.teamNameB}
+                  onChange={this.handleInputChange.bind(this)}
+                  type='text'
+                  name='teamNameB' className='GameNew-teamname-b form-control' />
+              </div>
+            </div>
+            <div class='form-group row'>
+              <label className='col-sm-2 col-form-label'>
+                Start in Minutes:
+              </label>
+              <div className='col-sm-10'>
+                <input value={this.state.minutesUntilStart}
+                  onChange={this.handleInputChange.bind(this)}
+                  type='number'
+                  name='minutesUntilStart' className='GameNew-start-in-x-minutes form-control' />
+              </div>
+            </div>
             <input type='submit' onClick={this.handleCreateNewGame.bind(this)}
-              value='Submit' className='GameNew-btn-submit' />
+              value='Submit' className='GameNew-btn-submit btn btn-primary' />
           </form>
         </div>
       </div>
