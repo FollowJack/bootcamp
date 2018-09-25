@@ -17,11 +17,9 @@ body {
   text-align: center;
 }
 
-input {
-  padding: 5px;
-  font-size: 12px;
-  width: 250px;
-}
+ .btn-space {
+   margin-right: 15px!important;
+ }
 
 a {
   text-decoration: none;

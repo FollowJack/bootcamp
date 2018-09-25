@@ -22,8 +22,7 @@ const selectors = {
       maxScore: '.GameNew-max-score',
       matchName: '.GameNew-match-name',
       teamNameA: '.GameNew-teamname-a',
-      teamNameB: '.GameNew-teamname-b',
-      startInXMinutes: '.GameNew-start-in-x-minutes'
+      teamNameB: '.GameNew-teamname-b'
     }
   }
 }
@@ -76,8 +75,6 @@ class GameNewContent {
     await page.keyboard.type('TeamA')
     await page.focus(selectors.gameNew.form.teamNameB)
     await page.keyboard.type('TeamB')
-    await page.focus(selectors.gameNew.form.startInXMinutes)
-    await page.keyboard.type('3')
   }
   async getLastGameTitel (page) {
     const html = await page.$eval(selectors.gameList.lastGameTitel, element => element.innerHTML)

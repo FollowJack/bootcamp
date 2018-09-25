@@ -8,9 +8,16 @@ class GameNew extends Component {
       matchName: '',
       teamNameA: '',
       teamNameB: '',
-      minutesUntilStart: 0
+      minutesUntilStart: 1
     }
     this.handleInputChange = this.handleInputChange.bind(this)
+  }
+
+  goBack (event) {
+    this.setState({})
+    this.props.history.push({
+      pathname: '/'
+    })
   }
 
   handleCreateNewGame (event) {
@@ -34,7 +41,7 @@ class GameNew extends Component {
         <h3 className='GameNew-title'>Create new Game</h3>
         <div>
           <form className='GameNew-form' onSubmit={this.handleCreateNewGame}>
-            <div class='form-group row'>
+            <div className='form-group row'>
               <label className='col-sm-2 col-form-label'>
                 Max Score:
               </label>
@@ -45,7 +52,7 @@ class GameNew extends Component {
                   name='maxScore' className='GameNew-max-score form-control' />
               </div>
             </div>
-            <div class='form-group row'>
+            <div className='form-group row'>
               <label className='col-sm-2 col-form-label'>
                 Match Name:
               </label>
@@ -56,7 +63,7 @@ class GameNew extends Component {
                   name='matchName' className='GameNew-match-name form-control' />
               </div>
             </div>
-            <div class='form-group row'>
+            <div className='form-group row'>
               <label className='col-sm-2 col-form-label'>
                 Team Name A:
               </label>
@@ -67,7 +74,7 @@ class GameNew extends Component {
                   name='teamNameA' className='GameNew-teamname-a form-control' />
               </div>
             </div>
-            <div class='form-group row'>
+            <div className='form-group row'>
               <label className='col-sm-2 col-form-label'>
                 Team Name B:
               </label>
@@ -78,19 +85,15 @@ class GameNew extends Component {
                   name='teamNameB' className='GameNew-teamname-b form-control' />
               </div>
             </div>
-            <div class='form-group row'>
-              <label className='col-sm-2 col-form-label'>
-                Start in Minutes:
+            <div className='form-group row'>
+              <label className='col-sm-12 col-form-label'>
+                Game will start in 1 Minutes after creation.
               </label>
-              <div className='col-sm-10'>
-                <input value={this.state.minutesUntilStart}
-                  onChange={this.handleInputChange.bind(this)}
-                  type='number'
-                  name='minutesUntilStart' className='GameNew-start-in-x-minutes form-control' />
-              </div>
             </div>
             <input type='submit' onClick={this.handleCreateNewGame.bind(this)}
-              value='Submit' className='GameNew-btn-submit btn btn-primary' />
+              value='Submit' className='GameNew-btn-submit btn btn-primary btn-space' />
+            <button type='button' onClick={this.goBack.bind(this)}
+              className='btn btn-outline-danger'>Back</button>
           </form>
         </div>
       </div>
