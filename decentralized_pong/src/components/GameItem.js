@@ -12,7 +12,7 @@ class GameItem extends Component {
           <div className='card-header'>#{this.props.game.id} {this.props.game.matchName}</div>
           <div className='card-body'>
             <p className='card-text'>{this.props.game.teamNameA} vs. {this.props.game.teamNameB}</p>
-            <NavLink to={`/game/${this.props.game.id}`} className='lnk'>View</NavLink>
+            <NavLink to={`/game/${this.props.game.id}`} className='Games-view'>View Game</NavLink>
           </div>
         </div>
       </div>

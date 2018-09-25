@@ -2,6 +2,7 @@
 import puppeteer from 'puppeteer'
 import AppComponents from './AppComponents'
 const GameNewContent = AppComponents.GameNewContent
+const GameContent = AppComponents.GameContent
 
 let browser
 let page
@@ -27,7 +28,9 @@ describe('Game List', () => {
   }, 900000)
 
   test('player views an existing game', async () => {
-    // TODO
+    await GameContent.loadPage(page)
+    const html = await GameContent.getTitle(page)
+    expect(html).toMatch('Match')
   }, 900000)
 })
 

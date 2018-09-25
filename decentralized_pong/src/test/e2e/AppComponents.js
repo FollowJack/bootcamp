@@ -10,6 +10,9 @@ const selectors = {
   app: {
     appTitle: '.App-title'
   },
+  game: {
+    title: '.Game-title'
+  },
   gameList: {
     title: '.Games-title',
     lastGameTitel: '.Games-view:last-child',
@@ -45,6 +48,10 @@ class GameListContent {
   constructor () {
     this.appHeader = new AppHeader()
   }
+  async clickOnLasttGame (page) {
+    await page.click(selectors.gameList.lastGameTitel)
+    await page.waitForSelector(selectors.game.title)
+  }
   async clickOnNewGame (page) {
     await page.click(selectors.gameList.newButton)
     await page.waitForSelector(selectors.gameNew.title)
@@ -59,7 +66,17 @@ class GameListContent {
     return html
   }
 }
-
+class GameContent {
+  async loadPage (page) {
+    const gameList = new GameListContent()
+    await gameList.loadPage(page)
+    await gameList.clickOnLasttGame(page)
+  }
+  async getTitle (page) {
+    const html = await page.$eval(selectors.game.title, element => element.innerHTML)
+    return html
+  }
+}
 class GameNewContent {
   async loadPage (page) {
     const gameList = new GameListContent()
@@ -93,5 +110,6 @@ class GameNewContent {
 export default {
   AppHeader: new AppHeader(),
   GameNewContent: new GameNewContent(),
-  GameListContent: new GameListContent()
+  GameListContent: new GameListContent(),
+  GameContent: new GameContent()
 }
