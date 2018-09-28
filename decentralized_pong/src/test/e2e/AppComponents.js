@@ -11,12 +11,16 @@ const selectors = {
     appTitle: '.App-title'
   },
   game: {
+    confirmation: '.Game-player-joins',
+    joinButton: '.Game-btn-join',
+    playerNameInput: '.Game-player-name-input',
     title: '.Game-title'
   },
   gameList: {
     title: '.Games-title',
     lastGameTitel: '.Games-view:last-child',
-    newButton: '.Games-btn-new-game'
+    newButton: '.Games-btn-new-game',
+    playerNameInput: '.'
   },
   gameNew: {
     title: '.GameNew-title',
@@ -48,7 +52,7 @@ class GameListContent {
   constructor () {
     this.appHeader = new AppHeader()
   }
-  async clickOnLasttGame (page) {
+  async clickOnLastGame (page) {
     await page.click(selectors.gameList.lastGameTitel)
     await page.waitForSelector(selectors.game.title)
   }
@@ -70,11 +74,21 @@ class GameContent {
   async loadPage (page) {
     const gameList = new GameListContent()
     await gameList.loadPage(page)
-    await gameList.clickOnLasttGame(page)
+    await gameList.clickOnLastGame(page)
+  }
+  async getJoiningConfirmation (page) {
+    const html = await page.$eval(selectors.game.confirmation, element => element.innerHTML)
+    return html
   }
   async getTitle (page) {
     const html = await page.$eval(selectors.game.title, element => element.innerHTML)
     return html
+  }
+  async joinGame (page, playerName) {
+    await page.focus(selectors.game.playerNameInput)
+    await page.keyboard.type(playerName)
+    await page.click(selectors.game.joinButton)
+    await page.waitForSelector(selectors.game.confirmation)
   }
 }
 class GameNewContent {

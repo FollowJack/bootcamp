@@ -10,7 +10,7 @@ class GameNew extends Component {
       teamNameB: '',
       minutesUntilStart: 1
     }
-    this.handleInputChange = this.handleInputChange.bind(this)
+    // this.handleInputChange = this.handleInputChange.bind(this)
   }
 
   goBack (event) {
@@ -27,7 +27,7 @@ class GameNew extends Component {
     })
   }
 
-  handleInputChange (event) {
+  handleInputChange = (event) => {
     const value = event.target.value
     const name = event.target.name
     this.setState({

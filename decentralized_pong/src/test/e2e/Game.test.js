@@ -1,7 +1,7 @@
 /* global describe, expect, test, beforeAll, afterAll */
 import puppeteer from 'puppeteer'
 import AppComponents from './AppComponents'
-const GameListContent = AppComponents.GameListContent
+const GameContent = AppComponents.GameContent
 
 let browser
 let page
@@ -20,10 +20,11 @@ beforeAll(async () => {
 
 describe('Game', () => {
   test('player joins game', async () => {
-    // TODO
-    // await GameListContent.loadPage(page)
-    // const html = await GamesContent.getTitle(page)
-    // expect(html).toBe('Choose your Game')
+    await GameContent.loadPage(page)
+    const playerName = 'AwesomeName'
+    await GameContent.joinGame(page, playerName)
+    const html = await GameContent.getJoiningConfirmation(page)
+    expect(html).toMatch(playerName)
   }, 900000)
 
   test('timer appears', async () => {
