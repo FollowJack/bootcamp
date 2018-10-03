@@ -8,14 +8,28 @@ class Game extends Component {
       matchName: 'Ultimate Pong 1',
       teamNameA: 'David',
       teamNameB: 'Goliath',
-      startTime: new Date(new Date().getTime() + 1 * 60000),
+      startTime: new Date(new Date().getTime() + 1 * 6000),
       playersTeamA: [],
       playersTeamB: [],
       newPlayer: {
         name: ''
       },
-      hasPlayerJoined: false
+      hasPlayerJoined: false,
+      hasGameStarted: false,
+      secondsUntilMatchStarts: 0
     }
+  }
+
+  clearTimer () {
+    clearInterval(this.timer);
+  }
+
+  componentDidMount (){
+        this.timer = setInterval(this.tick, 100);
+  }
+
+  componentWillUnmount (){
+    this.clearTimer()
   }
 
   getPlayersCount () {
@@ -55,10 +69,24 @@ class Game extends Component {
     this.setState({hasPlayerJoined: true, newPlayer: { name: ''}})
   }
 
+  tick = () => {
+    let timeUntilStarts = Math.round((new Date() - this.state.startTime) / 1000)
+    if (timeUntilStarts >= 0) {
+      this.setState({
+        hasGameStarted: true,
+        secondsUntilMatchStarts: 0
+      })
+      return
+    }
+    timeUntilStarts = Math.abs(timeUntilStarts)
+    this.setState({secondsUntilMatchStarts: timeUntilStarts})
+  }
+
   render () {
     return (
       <div>
         <h3 className='Game-title'>Match #{this.props.match.params.id} {this.state.matchName}</h3>
+        <h5 className='Game-timer-start'>Match starts in {this.state.secondsUntilMatchStarts}s</h5>
         <div className='row'>
 
           <div className='Game-player-team-a col-sm-6 mb-3'>
@@ -81,7 +109,7 @@ class Game extends Component {
               }
             </ul>
           </div>
-          { !this.state.hasPlayerJoined
+          { !this.state.hasPlayerJoined && !this.state.hasGameStarted
            ?  <div className='form-inline col-sm-12'>
                 <div className='form-group mb-2'>
                   <input type='text' readOnly className='form-control-plaintext' value='Your Name:' />

@@ -13,6 +13,7 @@ const selectors = {
   game: {
     lastPlayerConfirmation: '.team-a > .list-group-item:last-child',
     joinButton: '.Game-btn-join',
+    matchStartTimer: '.Game-timer-start',
     playerNameInput: '.Game-player-name-input',
     title: '.Game-title'
   },
@@ -77,6 +78,10 @@ class GameContent {
   }
   async getJoiningConfirmation (page) {
     const html = await page.$eval(selectors.game.lastPlayerConfirmation, element => element.innerHTML)
+    return html
+  }
+  async getMatchStartTimer (page) {
+    const html = await page.$eval(selectors.game.matchStartTimer, element => element.innerHTML)
     return html
   }
   async getTitle (page) {
