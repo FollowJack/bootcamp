@@ -39,6 +39,9 @@ class Game extends Component {
   }
 
   joinGame (event) {
+    if(this.state.newPlayer.name === '') {
+      return
+    }
     const playersCounter = this.getPlayersCount()
     if (playersCounter % 2 === 0) {
       this.setState({
@@ -59,7 +62,7 @@ class Game extends Component {
         <div className='row'>
 
           <div className='Game-player-team-a col-sm-6 mb-3'>
-            <ul className='list-group'>
+            <ul className='team-a list-group'>
               <li className='list-group-item active'>Team: {this.state.teamNameA}</li>
               {
                 this.state.playersTeamA.map((player, index) => {
@@ -70,7 +73,7 @@ class Game extends Component {
           </div>
           <div className='Game-player-team-b col-sm-6 mb-3'>
             <ul className='list-group'>
-              <li className='list-group-item active'>Team: {this.state.teamNameB}</li>
+              <li className='team-b list-group-item active'>Team: {this.state.teamNameB}</li>
               {
                 this.state.playersTeamB.map((player, index) => {
                   return <li className='list-group-item' key={index} >{player.name}</li>
@@ -87,10 +90,10 @@ class Game extends Component {
                   <input value={this.state.newPlayer.name}
                     onChange={this.handleInputChange}
                     type='text'
-                    name='newPlayerName' className='Game-new-player-name form-control' />
+                    name='newPlayerName' className='Game-player-name-input form-control' />
                 </div>
                 <button type='button' onClick={this.joinGame.bind(this)}
-                  className='btn btn-success mb-2'>Join Game</button>
+                  className='Game-btn-join btn btn-success mb-2'>Join Game</button>
               </div>
            : null
           }

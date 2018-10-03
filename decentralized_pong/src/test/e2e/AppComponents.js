@@ -11,7 +11,7 @@ const selectors = {
     appTitle: '.App-title'
   },
   game: {
-    confirmation: '.Game-player-joins',
+    lastPlayerConfirmation: '.team-a > .list-group-item:last-child',
     joinButton: '.Game-btn-join',
     playerNameInput: '.Game-player-name-input',
     title: '.Game-title'
@@ -20,7 +20,6 @@ const selectors = {
     title: '.Games-title',
     lastGameTitel: '.Games-view:last-child',
     newButton: '.Games-btn-new-game',
-    playerNameInput: '.'
   },
   gameNew: {
     title: '.GameNew-title',
@@ -77,7 +76,7 @@ class GameContent {
     await gameList.clickOnLastGame(page)
   }
   async getJoiningConfirmation (page) {
-    const html = await page.$eval(selectors.game.confirmation, element => element.innerHTML)
+    const html = await page.$eval(selectors.game.lastPlayerConfirmation, element => element.innerHTML)
     return html
   }
   async getTitle (page) {
@@ -88,7 +87,7 @@ class GameContent {
     await page.focus(selectors.game.playerNameInput)
     await page.keyboard.type(playerName)
     await page.click(selectors.game.joinButton)
-    await page.waitForSelector(selectors.game.confirmation)
+    await page.waitForSelector(selectors.game.lastPlayerConfirmation)
   }
 }
 class GameNewContent {

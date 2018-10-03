@@ -23,5 +23,18 @@
   "devDependencies": {
     "faker": "^4.1.0",
     "puppeteer": "^1.8.0"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+          "jsx": true
+      }
+    },
+    "env": {
+      "browser": true,
+      "node": true
+    }
   }
 }
