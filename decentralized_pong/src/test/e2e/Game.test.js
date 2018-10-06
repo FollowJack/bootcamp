@@ -39,10 +39,8 @@ describe('Game', () => {
   }, 900000)
 
   test('player moves down and gets it visualized', async () => {
-    // TODO
-    // await GameListContent.loadPage(page)
-    // const html = await GamesContent.getTitle(page)
-    // expect(html).toBe('Choose your Game')
+    await GameContent.loadPage(page)
+    await GameContent.playerMovesDown(page)
   }, 900000)
 })
 

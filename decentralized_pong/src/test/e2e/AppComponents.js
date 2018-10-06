@@ -17,7 +17,8 @@ const selectors = {
     matchStartTimer: '.Game-timer-start',
     playerNameInput: '.Game-player-name-input',
     title: '.Game-title',
-    upIcon: '.Game-up-icon'
+    upIcon: '.Game-up-icon',
+    downIcon: '.Game-down-icon'
   },
   gameList: {
     title: '.Games-title',
@@ -96,12 +97,17 @@ class GameContent {
     await page.click(selectors.game.joinButton)
     await page.waitForSelector(selectors.game.lastPlayerConfirmation)
   }
+  async playerMovesDown (page) {
+    await page.focus(selectors.game.canvas)
+    await page.keyboard.down('ArrowDown');
+    await page.waitForSelector(selectors.game.downIcon)
+    await page.keyboard.up('ArrowDown')
+  }
   async playerMovesUp (page) {
     await page.focus(selectors.game.canvas)
     await page.keyboard.down('ArrowUp');
     await page.waitForSelector(selectors.game.upIcon)
     await page.keyboard.up('ArrowUp');
-
   }
 }
 class GameNewContent {
