@@ -16,7 +16,9 @@ class Game extends Component {
       },
       hasPlayerJoined: false,
       hasGameStarted: false,
-      secondsUntilMatchStarts: 0
+      secondsUntilMatchStarts: 0,
+      isMoveUpPressed: false,
+      isMoveDownPressed: false
     }
   }
 
@@ -24,12 +26,34 @@ class Game extends Component {
     clearInterval(this.timer);
   }
 
-  componentDidMount (){
-        this.timer = setInterval(this.tick, 100);
+  arrowPressed = (event) => {
+    if (event.type === 'keyup') {
+      this.setState({isMoveUpPressed: false, isMoveDownPressed: false})
+      return
+    }
+    // up
+    if(event.keyCode === 38) {
+      this.setState({isMoveUpPressed: true})
+    } else {
+      this.setState({isMoveUpPressed: false})
+    }
+    // down
+    if(event.keyCode === 40) {
+      this.setState({isMoveDownPressed: true})
+    } else {
+      this.setState({isMoveDownPressed: false})
+    }
+  }
+  componentDidMount(){
+    document.addEventListener("keydown", this.arrowPressed, false);
+    document.addEventListener("keyup", this.arrowPressed, false);
+    this.timer = setInterval(this.tick, 100);
   }
 
   componentWillUnmount (){
     this.clearTimer()
+    document.removeEventListener("keydown", this.arrowPressed, false);
+    document.removeEventListener("keyup", this.arrowPressed, false);
   }
 
   getPlayersCount () {
@@ -86,6 +110,7 @@ class Game extends Component {
     return (
       <div>
         <h3 className='Game-title'>Match #{this.props.match.params.id} {this.state.matchName}</h3>
+        <h5> Choose your player name and use the arrow up and arrow down key on your keyboard</h5>
         <h5 className='Game-timer-start'>Match starts in {this.state.secondsUntilMatchStarts}s</h5>
         <div className='row'>
 
@@ -126,7 +151,21 @@ class Game extends Component {
            : null
           }
           <div className='Game-pong-canvas col-sm-12'>
-            TODO
+            <div className='Game-playfield'>
+              Playfield
+            </div>
+            <div className='Game-arrows'>
+              {
+                this.state.isMoveUpPressed
+                ? <span className="Game-up-icon oi oi-arrow-circle-top"></span>
+                : null
+              }
+              {
+                this.state.isMoveDownPressed
+                ? <span className="Game-down-icon oi oi-arrow-circle-bottom"></span>
+                : null
+              }
+            </div>
           </div>
         </div>
       </div>

@@ -34,6 +34,8 @@ describe('Game', () => {
   }, 900000)
 
   test('player moves up and gets it visualized', async () => {
+    await GameContent.loadPage(page)
+    await GameContent.playerMovesUp(page)
   }, 900000)
 
   test('player moves down and gets it visualized', async () => {

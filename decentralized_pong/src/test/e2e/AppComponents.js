@@ -11,11 +11,13 @@ const selectors = {
     appTitle: '.App-title'
   },
   game: {
+    canvas: '.Game-pong-canvas',
     lastPlayerConfirmation: '.team-a > .list-group-item:last-child',
     joinButton: '.Game-btn-join',
     matchStartTimer: '.Game-timer-start',
     playerNameInput: '.Game-player-name-input',
-    title: '.Game-title'
+    title: '.Game-title',
+    upIcon: '.Game-up-icon'
   },
   gameList: {
     title: '.Games-title',
@@ -93,6 +95,13 @@ class GameContent {
     await page.keyboard.type(playerName)
     await page.click(selectors.game.joinButton)
     await page.waitForSelector(selectors.game.lastPlayerConfirmation)
+  }
+  async playerMovesUp (page) {
+    await page.focus(selectors.game.canvas)
+    await page.keyboard.down('ArrowUp');
+    await page.waitForSelector(selectors.game.upIcon)
+    await page.keyboard.up('ArrowUp');
+
   }
 }
 class GameNewContent {
