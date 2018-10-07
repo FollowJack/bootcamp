@@ -1,10 +1,11 @@
 /* global describe, test */
+let PlayField = require('../../pong/PlayField')
 describe('PlayField', () => {
-  test('initialize play field', () => {})
-  test('ball moves default to the right', () => {})
-  test('ball colides with paddle', () => {})
-  test('ball colides with upside wall', () => {})
-  test('ball colides with upside wall', () => {})
-  test('ball colides with team 1s wall', () => {})
-  test('ball colides with team 2s wall', () => {})
+  test('initialize play field', () => {
+    const width = 1000
+    const height = 500
+    const playField = new PlayField(width,height)
+    expect(playField.width).toEqual(width)
+    expect(playField.height).toEqual(height)
+  })
 })

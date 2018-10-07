@@ -1,11 +1,26 @@
 /* global describe, test */
+let gameManager
+const team = 'team1'
+const startTime = new Date(new Date().getTime() * 3000)
 describe('GameManager', () => {
-  test('web starts the game', () => {
+  beforeEach(() => {
+    const GameManager = require('../../pong/GameManager')
+    gameManager = new GameManager(startTime,team)
   })
-  test('player joins the game', () => {
+  test('player joined', () => {
+    expect(gameManager.selectedTeam).toEqual(team)
   })
-  test('web finishs the game', () => {
+  test('player moves up', () => {
+    gameManager.playerMovesUp()
+    expect(gameManager.isMovementSend).toEqual(true)
   })
-  test('player moves up', () => {})
-  test('player moves down', () => {})
+  test('player moves down', () => {
+    gameManager.playerMovesDown()
+    expect(gameManager.isMovementSend).toEqual(true)
+  })
+  test('aggregation moves', () => {
+    // get data
+    // aggregate data
+    // give pong the new movement
+  })
 })

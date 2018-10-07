@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Pong from '../components/Pong'
 
 class Game extends Component {
   constructor (props) {
@@ -152,7 +153,7 @@ class Game extends Component {
           }
           <div className='Game-pong-canvas col-sm-12'>
             <div className='Game-playfield'>
-              Playfield
+              <Pong />
             </div>
             <div className='Game-arrows'>
               {

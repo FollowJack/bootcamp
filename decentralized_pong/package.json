@@ -22,7 +22,11 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
     "faker": "^4.1.0",
+    "jest-dom": "^2.0.2",
+    "jest-enzyme": "^6.1.2",
     "puppeteer": "^1.8.0"
   },
   "eslintConfig": {
