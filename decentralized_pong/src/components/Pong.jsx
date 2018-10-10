@@ -19,7 +19,8 @@ class Pong extends Component {
   render () {
     return (
       <div className='Pong'>
-        Hello Canvas
+        <canvas id='Pong-canvas' width={this.gameManager.width} height={this.gameManager.height}>
+          Your browser does not support the HTML5 canvas tag.</canvas>
       </div>
     )
   }
