@@ -6,9 +6,9 @@ class PlayField {
     this.width = width
     this.height = height
     this.field = this.getInitialField()
-    this.paddleLeft = new Paddle(4,49)
-    this.paddleRight = new Paddle(994,49)
-    this.ball = new Ball(498, 248)
+    this.paddleLeft = new Paddle(1, ((this.height-1)/2)-50)
+    this.paddleRight = new Paddle(this.width-1-10, ((this.height-1)/2)-50)
+    this.ball = new Ball((this.width/2)-1, (this.height-1)/2, 5, 0)
   }
 
   getInitialField () {

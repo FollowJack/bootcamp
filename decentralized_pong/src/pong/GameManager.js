@@ -21,40 +21,18 @@ class GameManager {
   }
 
   drawBall () {
-    const ball = this.pong.playField.ball
-    const ballX = ball.x
-    const ballY = ball.y
-    const ballWidth = ball.width
-    const ballHeight = ball.height
-    this.canvasContext.fillStyle = 'white'
-    this.canvasContext.fillRect(ballX, ballY, ballWidth, ballHeight)
-  }
-
-  drawPaddle (paddle) {
-    const paddleX = paddle.x
-    const paddleY = paddle.y
-    const paddleWidth = paddle.width
-    const paddleHeight = paddle.height
-    this.canvasContext.fillStyle = 'white'
-    this.canvasContext.fillRect(paddleX, paddleY, paddleWidth, paddleHeight)
+    this.pong.playField.ball.draw(this.canvasContext)
   }
 
   drawPaddles () {
-    const paddleLeft = this.pong.playField.paddleLeft
-    const paddleRight = this.pong.playField.paddleRight
-    this.drawPaddle(paddleLeft)
-    this.drawPaddle(paddleRight)
+    this.pong.playField.paddleLeft.draw(this.canvasContext)
+    this.pong.playField.paddleRight.draw(this.canvasContext)
   }
 
   drawPong () {
     this.drawBackground()
     this.drawPaddles()
     this.drawBall()
-  }
-
-
-  playerMovesUp () {
-
   }
 
   setCanvasContext (canvasContext) {
@@ -69,13 +47,14 @@ class GameManager {
     // send data
     // get data
     // aggregate
-    const thresholdPaddleLeft = 1
-    const thresholdPaddleRight = 1
+    const thresholdPaddleLeft = 5
+    const thresholdPaddleRight = 5
     // trigger move
     // move paddles
     this.pong.playerMovesUp('LEFT',thresholdPaddleLeft)
     this.pong.playerMovesDown('RIGHT',thresholdPaddleRight)
     // move ball
+    this.pong.playField.ball.setNextPosition()
     this.pong.moveBall()
     this.isMovementSend = false
     this.drawPong()

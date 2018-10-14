@@ -1,15 +1,27 @@
 class Ball {
-  constructor (x, y) {
+  constructor (x, y, vx, vy) {
     this.x = x
     this.y = y
-    this.height = 4
-    this.width = 4
+    this.height = 10
+    this.width = 10
+    this.vx = vx
+    this.vy = vy
   }
 
-  setPosition (x, y) {
-    this.x = x
-    this.y = y
+  draw (context) {
+    context.fillStyle = 'white'
+    context.fillRect(this.x, this.y, this.width, this.height)
   }
+
+  setNextPosition () {
+    this.x += this.vx
+    this.y += this.vy
+  }
+
+  isMovingRight () {
+    return this.vx > 0
+  }
+
 }
 
 module.exports = Ball
