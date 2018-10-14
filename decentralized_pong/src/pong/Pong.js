@@ -26,10 +26,10 @@ class Pong {
 
     if (playerSite === 'team1') {
       paddlePosition = this.playField.paddleLeft
-      this.playField.paddleLeft.position.y += threshold
+      this.playField.paddleLeft.y += threshold
     } else {
       paddlePosition = this.playField.paddleRight
-      this.playField.paddleRight.position.y += threshold
+      this.playField.paddleRight.y += threshold
     }
   }
 

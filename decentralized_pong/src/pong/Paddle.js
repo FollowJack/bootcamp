@@ -1,16 +1,14 @@
 class Paddle {
   constructor (x, y, width, height) {
-    this.position = {
-      x: x,
-      y: y
-    }
-    this.height = height
-    this.width = width
+    this.x = x
+    this.y = y
+    this.height = 10
+    this.width = 3
   }
 
   setPosition (x, y) {
-    this.position.x = x
-    this.position.y = y
+    this.x = x
+    this.y = y
   }
 }
 

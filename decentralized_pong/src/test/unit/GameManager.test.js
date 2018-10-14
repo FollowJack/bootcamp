@@ -20,7 +20,13 @@ describe('GameManager', () => {
   })
   test('aggregation moves', () => {
     // get data
+    const expectedState = {}
+
+
     // aggregate data
+    const state = gameManager.dataManager.getState()
     // give pong the new movement
+    expect({a: 1}).toBe({a: 1});
+    // expect(gameManager.pong.paddleLeft.position.y).toEqual(expectedState)
   })
 })

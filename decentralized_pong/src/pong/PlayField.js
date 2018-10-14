@@ -1,12 +1,14 @@
 const Paddle = require('./Paddle')
+const Ball = require('./Ball')
 
 class PlayField {
   constructor (width, height) {
     this.width = width
     this.height = height
     this.field = this.getInitialField()
-    this.paddleLeft = new Paddle(4,49,10,3)
-    this.paddleRight = new Paddle(994,49,10,3)
+    this.paddleLeft = new Paddle(4,49)
+    this.paddleRight = new Paddle(994,49)
+    this.ball = new Ball(498, 248)
   }
 
   getInitialField () {

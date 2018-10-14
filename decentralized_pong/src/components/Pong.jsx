@@ -9,6 +9,13 @@ class Pong extends Component {
     this.gameManager = new GameManager(startTime, teamSide)
   }
 
+  componentDidMount() {
+    const canvas = this.refs.pongCanvas
+    const context = canvas.getContext("2d")
+    this.gameManager.setCanvasContext(context)
+    this.gameManager.start()
+  }
+
   // initiaslize event handler for up and down
     // gameManager.moveUp
 
@@ -19,7 +26,7 @@ class Pong extends Component {
   render () {
     return (
       <div className='Pong'>
-        <canvas id='Pong-canvas' width={this.gameManager.width} height={this.gameManager.height}>
+        <canvas id='Pong-canvas' ref='pongCanvas' width={this.gameManager.width} height={this.gameManager.height}>
           Your browser does not support the HTML5 canvas tag.</canvas>
       </div>
     )
