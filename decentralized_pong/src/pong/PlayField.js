@@ -8,12 +8,12 @@ class PlayField {
     this.field = this.getInitialField()
     const paddleLeftY = Math.round(((this.height-1)/2)-50)
     const paddleRightX = Math.round(this.width-1-10)
-    const paddleRightY = Math.round(((this.height-1)/2)-50)
+    const paddleRightY = Math.round(((this.height-1)/2)-50+45)
     const ballX = (this.width/2)-1
     const ballY = (this.height-1)/2
     this.paddleLeft = new Paddle(1, paddleLeftY)
     this.paddleRight = new Paddle(paddleRightX, paddleRightY)
-    this.ball = new Ball(ballX, ballY, 5, 0)
+    this.ball = new Ball(ballX, ballY, 20, 0)
   }
 
   getInitialField () {
