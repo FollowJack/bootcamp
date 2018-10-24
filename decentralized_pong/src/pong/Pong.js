@@ -76,24 +76,25 @@ class Pong {
     // get player
     let paddlePosition
     threshold = direction === 'UP' ? -threshold : +threshold
-
     if (playerSite === 'LEFT') {
       paddlePosition = this.playField.paddleLeft
-      this.playField.paddleLeft.y += threshold
+      this.playField.paddleLeft.y += Math.round(threshold)
+      // upper edge
       if (this.playField.paddleLeft.y < 0) {
         this.playField.paddleLeft.y = 0
       }
-      if (this.playField.paddleLeft.y > this.height-1-this.playField.paddleLeft.height) {
-        this.playField.paddleLeft.y = this.height-1-this.playField.paddleLeft.height
+      // lower edge
+      else if (this.playField.paddleLeft.y > this.height-1-this.playField.paddleLeft.height) {
+        this.playField.paddleLeft.y = Math.round(this.height-1-this.playField.paddleLeft.height)
       }
     } else {
       paddlePosition = this.playField.paddleRight
-      this.playField.paddleRight.y += threshold
+      this.playField.paddleRight.y += Math.round(threshold)
       if (this.playField.paddleRight.y < 0) {
         this.playField.paddleRight.y = 0
       }
-      if (this.playField.paddleRight.y > this.height-this.playField.paddleRight.height) {
-        this.playField.paddleRight.y = this.height-this.playField.paddleRight.height
+      else if (this.playField.paddleRight.y > this.height-this.playField.paddleRight.height) {
+        this.playField.paddleRight.y = Math.round(this.height-this.playField.paddleRight.height)
       }
     }
   }

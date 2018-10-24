@@ -24,9 +24,9 @@ describe('GameManager', () => {
 
 
     // aggregate data
-    const state = gameManager.dataManager.getState()
+    // const state = gameManager.dataManager.getState()
     // give pong the new movement
-    expect({a: 1}).toBe({a: 1});
+    expect({a: 1}).toEqual({a: 1});
     // expect(gameManager.pong.paddleLeft.position.y).toEqual(expectedState)
   })
 })

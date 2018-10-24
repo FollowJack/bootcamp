@@ -7,8 +7,8 @@ import Pong from '../../components/Pong';
 describe('Pong', () => {
   let wrapper;
   beforeEach(() => {
-    const match = { params: { id: '1' } }
-    wrapper = shallow(<Game match={match}/>)
+    // const match = { params: { id: '1' } }
+    // wrapper = shallow(<Game match={match}/>)
   })
   test('place the game', () => {
     // expect(wrapper.containsMatchingElement(<Pong />)).toEqual(true)

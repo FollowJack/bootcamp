@@ -6,9 +6,14 @@ class PlayField {
     this.width = width
     this.height = height
     this.field = this.getInitialField()
-    this.paddleLeft = new Paddle(1, ((this.height-1)/2)-50)
-    this.paddleRight = new Paddle(this.width-1-10, ((this.height-1)/2)-50)
-    this.ball = new Ball((this.width/2)-1, (this.height-1)/2, 5, 0)
+    const paddleLeftY = Math.round(((this.height-1)/2)-50)
+    const paddleRightX = Math.round(this.width-1-10)
+    const paddleRightY = Math.round(((this.height-1)/2)-50)
+    const ballX = (this.width/2)-1
+    const ballY = (this.height-1)/2
+    this.paddleLeft = new Paddle(1, paddleLeftY)
+    this.paddleRight = new Paddle(paddleRightX, paddleRightY)
+    this.ball = new Ball(ballX, ballY, 5, 0)
   }
 
   getInitialField () {
@@ -19,6 +24,7 @@ class PlayField {
         field[x][y] = null
       }
     }
+    return field
   }
 
   /*
