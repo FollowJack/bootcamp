@@ -16,4 +16,4 @@ class UFreeSection extends React.Component {
   }
 }
 
-export default GameOfLifeSection
+export default UFreeSection

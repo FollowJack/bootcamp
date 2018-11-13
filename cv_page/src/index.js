@@ -9,7 +9,7 @@ import Sidebar from './components/common/sidebar'
 import FooterSection from './components/common/footer'
 import ScrollToTop from './components/common/scrollToTop'
 import GameOfLife from './components/projects/gameOfLife'
-import GameOfLife from './components/projects/uFree'
+import UFree from './components/projects/uFree'
 import Home from './components/home/index'
 
 class App extends React.Component {
