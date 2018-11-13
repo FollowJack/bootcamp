@@ -35,7 +35,10 @@ Result: At the end you will have a react native installed as dependency
 ### 3. Create a Hello World React Native project
 Here a simple tutorial for creating a hello world app: https://facebook.github.io/react-native/docs/tutorial    
 
-## PS
+Result: You have a simulator running a Hello World React Native app.
+
+
+### PS
 If you have any further questions, feel free to contact me. You should not hang somewhere longer than 10 minutes. Ask me then!
 
 Congratulations and have fun.     
