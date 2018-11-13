@@ -1,7 +1,7 @@
 Greetings young fellow developer,
 
 here is your:     
-## First task    
+## 1st task    
 
 Goal: Have a "Hello World" React Native app     
 
