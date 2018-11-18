@@ -18,6 +18,10 @@ export default class ActionScreen extends React.Component {
     header: null,
   };
 
+  onPressRecord() {
+    alert("Recording")
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -26,6 +30,7 @@ export default class ActionScreen extends React.Component {
 
           <Button
             title="Record your message"
+            onPress={this.onPressRecord}
             color="#841584"
           />
         </ScrollView>
