@@ -25,14 +25,14 @@ Result: You will have the project started and runnable with expo on your mobile
 
 ### 2. Go to file
 Open the project with your favorite IDE (*Mine is ATOM*)
-Open the file '' in the IDE.
+Open the file 'MainTabNavigator.js' in the IDE.
 
 Result: At the end you will have the file ready to get changed
 
 
 ### 3. Set new titles for bottom navigation
 See the existing bottom navigation.    
-There should be somewhere the titles.    
+There should be somewhere the existing titles (Home,Links,Settings).    
 Change them to the following:    
 - Action    
 - Library   
