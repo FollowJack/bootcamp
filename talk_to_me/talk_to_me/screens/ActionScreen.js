@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import { Button } from 'react-native';
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
@@ -22,6 +23,11 @@ export default class ActionScreen extends React.Component {
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <Text style={styles.getStartedText}>Press the button to start recording</Text>
+
+          <Button
+            title="Record your message"
+            color="#841584"
+          />
         </ScrollView>
       </View>
           // <View style={styles.welcomeContainer}>
